@@ -9,22 +9,22 @@ export default function GraphicDesignPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <section className="max-w-4xl mx-auto py-10 px-4">
+    <section className="max-w-4xl mx-auto pt-4 sm:pt-10 px-4">
       <Link
         href="/projects"
-        className="text-gray-700 font-semibold"
+        className="text-gray-700 text-sm sm:text-lg font-semibold"
       >
         &#129044; My Projects
       </Link>
 
-      <h1 className="text-4xl font-tinos mb-6 text-amaranth-purple">
+      <h1 className="text-3xl sm:text-4xl font-tinos mb-6 text-amaranth-purple">
         Graphic Design
       </h1>
-      <p className="text-lg text-gray-700 mb-20">
+      <p className="text-lg text-gray-700 mb-12 sm:mb-20">
         Logos, advertisements, and other designs created for both individuals and companies. This page is still a work in progress and more designs will be added in the future.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-6">
         {designs.map((design) => (
           <button
             key={design.title}
@@ -42,7 +42,7 @@ export default function GraphicDesignPage() {
             </div>
 
             <div className="mt-2">
-              <h3 className="text-lg font-semibold text-gray-900">{design.title}</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900">{design.title}</h3>
               {design.description && (
                 <p className="text-sm text-gray-600">{design.description}</p>
               )}

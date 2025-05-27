@@ -17,7 +17,7 @@ export const personalProjects = [
     description: 'A React Native app for logging fishing trips and catches.',
     github: 'https://github.com/nooraem/fishing-app',
     status: 'In Progress',
-    tags: ['React Native', 'Firebase', 'TypeScript'],
+    tags: ['Expo', 'React Native', 'TypeScript', 'Firebase'],
   },
 ];
 

@@ -9,9 +9,9 @@ export default function Projects() {
   };
 
   return (
-    <section className="max-w-3xl mx-auto py-10 px-4">
-      <h1 className="text-4xl font-tinos mb-6 text-amaranth-purple">My Projects</h1>
-      <p className="text-lg mb-14">
+    <section className="max-w-3xl mx-auto pt-4 px-4 sm:pt-10">
+      <h1 className="text-3xl sm:text-4xl font-tinos mb-6 text-amaranth-purple">My Projects</h1>
+      <p className="sm:text-lg mb-14">
         This page showcases some of my personal and school projects. 
         It’s still a work in progress, and I will be adding more of my previous projects over time.
       </p>

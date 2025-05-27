@@ -6,7 +6,7 @@ export interface TagProps {
 }
 
 export default function Tag({ tag, variant = 'status' }: TagProps) {
-  const base = 'inline-block text-sm px-3 py-1 rounded-full mb-2 mr-2 font-medium w-fit';
+  const base = 'inline-block text-xs sm:text-sm px-3 py-1 rounded-full mb-2 mr-2 font-medium w-fit';
 
   const statusColors: Record<string, string> = {
     'Completed': 'bg-green-100 text-green-900',

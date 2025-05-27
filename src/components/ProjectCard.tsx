@@ -22,7 +22,7 @@ export default function ProjectCard({
   return (
     <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition">
       
-      <h3 className="text-xl font-semibold text-gray-900 mb-2">{name}</h3>
+      <h3 className="text-xl font-semibold text-gray-700 mb-2">{name}</h3>
       <p className="text-gray-700 mb-4">{description}</p>
 
       {hasBadges && (

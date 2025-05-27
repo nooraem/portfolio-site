@@ -31,7 +31,6 @@ export default function Header() {
         </button>
       </nav>
 
-      {/* Mobile dropdown menu */}
       {menuOpen && (
         <div className="md:hidden px-4 pb-4">
           <ul className="space-y-2 text-gray-700 **:hover:text-amaranth-purple">
