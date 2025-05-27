@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function About() {
     return (
-        <section className="max-w-3xl mx-auto pt-4 sm:pt-10 px-4">
+        <section className="max-w-3xl mx-auto pt-4 sm:pt-10 px-2">
             <div className='flex flex-col md:flex-row gap-8'>
                 <Image 
                     src="/pfp.jpg" 
@@ -14,7 +14,7 @@ export default function About() {
                     className='object-contain h-48 w-min sm:h-75 shadow-md rounded-lg'/>
                 
                 <div className='flex flex-col w-auto'>
-                    <h1 className="text-3xl sm:text-4xl font-tinos mb-6 text-amaranth-purple">
+                    <h1 className="text-3xl sm:text-4xl font-tinos mb-6 text-pink">
                         About Me
                     </h1>
                     
@@ -36,7 +36,7 @@ export default function About() {
             </p>
 
             <div className="flex flex-col space-y-4 mt-10">
-                <h2 className="text-3xl font-tinos mb-6 text-tyrian-purple">Education</h2>
+                <h2 className="text-2xl sm:text-3xl font-tinos mb-6 text-dark-pink">Education</h2>
                 {studies.map((education) => (
                 <EducationCard key={`${education.school}-${education.degree}`} {...education}/>
                 ))}

@@ -11,16 +11,18 @@ interface EducationCardProps {
 
 export default function EducationCard({ status, statusInfo, school, degree, field, information }: EducationCardProps) {
   return (
-    <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition">
+    <div className="bg-white rounded-lg py-6 px-6 shadow-sm hover:shadow-mg transition">
+      <div className="flex flex-wrap gap-2 mb-2">
+        <Tag tag={status} variant="status" />
+        <Tag tag={statusInfo} variant="info" />
+      </div>
 
-      <Tag tag={status} variant="status" />
-      <Tag tag={statusInfo} variant="info" />
+      <h3 className="text-xl sm:text-2xl mb-1 font-semibold">{degree}</h3>
+      <p className="sm:text-lg italic mb-1">{field}</p>
 
-      <h3 className="text-xl font-semibold mb-1 text-gray-900">{degree}</h3>
-      <p className="text-md text-gray-800 mb-1 italic">{field}</p>
-      <p className="text-sm text-gray-600 mb-4">{school}</p>
+      <p className="text-sm sm:text-base mb-4 font-medium text-dark-pink/70">{school}</p>
 
-      <p className="mb-4 text-gray-700">{information}</p>
+      <p className="mb-2">{information}</p>
     </div>
   );
 }

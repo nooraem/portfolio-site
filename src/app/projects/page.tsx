@@ -9,14 +9,17 @@ export default function Projects() {
   };
 
   return (
-    <section className="max-w-3xl mx-auto pt-4 px-4 sm:pt-10">
-      <h1 className="text-3xl sm:text-4xl font-tinos mb-6 text-amaranth-purple">My Projects</h1>
-      <p className="sm:text-lg mb-14">
+    <section className="max-w-3xl mx-auto pt-4 px-2 sm:pt-10">
+      <h1 className="font-tinos text-3xl sm:text-4xl mb-6 text-pink">
+        My Projects
+      </h1>
+
+      <p className="sm:text-lg mb-12">
         This page showcases some of my personal and school projects. 
-        It’s still a work in progress, and I will be adding more of my previous projects over time.
+        It is still a work in progress, and I will be adding more of my previous projects over time.
       </p>
 
-      <h2 className="text-3xl font-tinos mb-6 text-tyrian-purple">Personal Projects</h2>
+      <h2 className="font-tinos text-2xl sm:text-3xl mb-6 text-dark-pink">Personal Projects</h2>
 
       <div className="flex flex-col space-y-4">
         {personalProjects.sort(sortByStatus).map((project) => (
@@ -24,7 +27,7 @@ export default function Projects() {
         ))}
       </div>
 
-      <h2 className="text-3xl font-tinos mt-10 mb-6 text-tyrian-purple">School Projects</h2>
+      <h2 className="font-tinos text-2xl sm:text-3xl my-6 text-dark-pink">School Projects</h2>
       
       <div className="flex flex-col space-y-4">
         {schoolProjects.sort(sortByStatus).map((project) => (

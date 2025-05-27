@@ -3,9 +3,16 @@
 @import "tailwindcss";
 
 @theme {
+  --color-*: initial;
   --color-white: #fff;
-  --color-amaranth-purple: #AA0055;
-  --color-tyrian-purple: #660033;
+  --color-light-gray: #f4f4f5;
+  --color-dark-gray: #3f3f46;
+  --color-pink: #9d174d;
+  --color-dark-pink: #500724;
+  --color-light-green: #dcfce7;
+  --color-dark-green: #065f46;
+  --color-light-yellow: #fef3c7;
+  --color-dark-yellow: #92400e;
 
   --font-tinos: "Tinos", serif; 
   --font-noto-sans-display: "Noto Sans Display", sans-serif;

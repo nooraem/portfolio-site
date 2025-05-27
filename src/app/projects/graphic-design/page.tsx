@@ -12,15 +12,15 @@ export default function GraphicDesignPage() {
     <section className="max-w-4xl mx-auto pt-4 sm:pt-10 px-4">
       <Link
         href="/projects"
-        className="text-gray-700 text-sm sm:text-lg font-semibold"
+        className="text-sm sm:text-lg font-medium"
       >
         &#129044; My Projects
       </Link>
 
-      <h1 className="text-3xl sm:text-4xl font-tinos mb-6 text-amaranth-purple">
+      <h1 className="text-3xl sm:text-4xl font-tinos mb-6 text-pink">
         Graphic Design
       </h1>
-      <p className="text-lg text-gray-700 mb-12 sm:mb-20">
+      <p className="text-lg mb-12 sm:mb-20">
         Logos, advertisements, and other designs created for both individuals and companies. This page is still a work in progress and more designs will be added in the future.
       </p>
 
@@ -42,9 +42,9 @@ export default function GraphicDesignPage() {
             </div>
 
             <div className="mt-2">
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-900">{design.title}</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-dark-pink">{design.title}</h3>
               {design.description && (
-                <p className="text-sm text-gray-600">{design.description}</p>
+                <p className="text-sm">{design.description}</p>
               )}
             </div>
           </button>
