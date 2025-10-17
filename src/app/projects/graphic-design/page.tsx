@@ -1,78 +1,47 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { designs } from '@/data/designs';
+import { useState } from "react";
+import DesignModal from "@/components/DesignModal";
+import GraphicDesigns from "@/components/GraphicDesigns";
+
+type Design = {
+  title: string;
+  description?: string;
+  image: string;
+  tag: string;
+}
 
 export default function GraphicDesignPage() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selected, setSelected] = useState<Design | null>(null);
 
   return (
-    <section className="max-w-4xl mx-auto pt-4 sm:pt-10 px-4">
-      <Link
-        href="/projects"
-        className="text-sm sm:text-lg font-medium"
-      >
-        &#129044; My Projects
-      </Link>
+    <div className="mx-auto w-full lg:w-4xl lg:my-40 content-center">
+      <div className="bg-base-300 p-6 space-y-4">
+        <h1 className="font-mono font-bold text-2xl text-accent">
+          <span className="text-info font-thin">/projects</span>
+          /graphic-design
+        </h1>
 
-      <h1 className="text-3xl sm:text-4xl font-tinos mb-6 text-pink">
-        Graphic Design
-      </h1>
-      <p className="text-lg mb-12 sm:mb-20">
-        Logos, advertisements, and other designs created for both individuals and companies. This page is still a work in progress and more designs will be added in the future.
-      </p>
+        <p>
+          Logos, advertisements and other designs created for private individuals or companies.
+        </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-6">
-        {designs.map((design) => (
-          <button
-            key={design.title}
-            onClick={() => setSelectedImage(design.image)}
-            className="focus:outline-none text-left"
-          >
-            <div className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition">
-              <Image
-                src={design.image}
-                alt={design.title}
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover rounded-lg"
-              />
-            </div>
-
-            <div className="mt-2">
-              <h3 className="text-lg sm:text-xl font-semibold text-dark-pink">{design.title}</h3>
-              {design.description && (
-                <p className="text-sm">{design.description}</p>
-              )}
-            </div>
-          </button>
-        ))}
+        <p className="italic text-sm text-primary/60">
+          (This page is still a work in progress and more designs will be added.)
+        </p>   
       </div>
 
-      {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div className="relative max-w-3xl max-h-[90vh] w-full">
-            <Image
-              src={selectedImage}
-              alt="Selected design"
-              width={1200}
-              height={800}
-              className="w-full h-auto rounded-lg shadow-lg bg-gray-100"
-            />
-            <button
-              className="absolute top-2 right-4 text-white text-shadow-2xs text-shadow-gray-900 text-5xl font-light"
-              onClick={() => setSelectedImage(null)}
-            >
-              &times;
-            </button>
-          </div>
-        </div>
-      )}
-    </section>
+      <div className="bg-base-200 p-6 mt-20">
+        <GraphicDesigns onSelect={(d) => setSelected(d)} />
+      </div>
+
+      <DesignModal
+        open={!!selected}
+        onClose={() => setSelected(null)}
+        title={selected?.title ?? ""}
+        description={selected?.description ?? ""}
+        image={selected?.image ?? ""}
+      />
+    </div>
   );
 }

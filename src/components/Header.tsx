@@ -1,46 +1,34 @@
-'use client';
-
-import { useState } from 'react';
-import { Menu } from 'lucide-react';
 import Link from 'next/link';
+import { Moon, Sun } from 'lucide-react';
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-md">
-      <nav className="container mx-auto p-4 flex justify-between items-center">
-        <Link href="/" className="flex flex-row font-tinos text-2xl text-transparent bg-clip-text bg-gradient-to-r from-dark-gray to-pink">
-          <p className="font-bold">Portfolio{'\u2502'}</p>
-          <p>Noora Issula</p>
-        </Link>
+    <>
+      <header className="flex flex-row fixed top-0 right-0 z-50 w-full h-20 p-6 space-x-20 items-center md:px-10">
+        <span className="font-tinos text-2xl md:text-3xl">
+          <Link href="/">NI | Portfolio</Link>
+        </span>
 
-        <ul className="hidden md:flex space-x-6 **:hover:text-pink">
-          <li><Link href="/">Home</Link></li>
-          <li><Link href="/about">About</Link></li>
-          <li><Link href="/projects">Projects</Link></li>
-          <li><Link href="/contact" className="font-semibold text-dark-pink">Contact</Link></li>
-        </ul>
-
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-pink"
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <Menu size={30} className='text-dark-gray/30' /> : <Menu size={30} />}
-        </button>
-      </nav>
-
-      {menuOpen && (
-        <div className="md:hidden px-4 pb-4">
-          <ul className="space-y-2 text-gray-700 **:hover:text-amaranth-purple">
-            <li><Link href="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
-            <li><Link href="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
-            <li><Link href="/projects" onClick={() => setMenuOpen(false)}>Projects</Link></li>
-            <li><Link href="/contact" onClick={() => setMenuOpen(false)} className="text-pink">Contact</Link></li>
-          </ul>
-        </div>
-      )}
-    </header>
+          <div className="flex flex-grow flex-row space-x-2">
+            <div className='h-5 w-5 rounded-full bg-base-100'></div>
+            <div className='h-5 w-5 rounded-full bg-base-200'></div>
+            <div className='h-5 w-5 rounded-full bg-base-300'></div>
+            <div className='h-5 w-5 rounded-full bg-primary'></div>
+            <div className='h-5 w-5 rounded-full bg-secondary'></div>
+            <div className='h-5 w-5 rounded-full bg-accent'></div>
+            <div className='h-5 w-5 rounded-full bg-info'></div>
+            <div className='h-5 w-5 rounded-full bg-success'></div>
+            <div className='h-5 w-5 rounded-full bg-warning'></div>
+            <div className='h-5 w-5 rounded-full bg-error'></div>
+          </div>
+      
+        <label className="swap swap-rotate btn btn-circle btn-soft btn-primary opacity-80">
+          <input type="checkbox" value="dark" className="theme-controller" defaultChecked />
+          <Moon className="swap-off"/>
+          <Sun className="swap-on"/>
+        </label>
+      </header>
+    </>
   );
 }

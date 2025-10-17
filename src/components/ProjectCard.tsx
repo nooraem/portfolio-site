@@ -1,4 +1,5 @@
-import Tag from './Tag';
+import Badge from './Badge';
+import Link from 'next/link';
 
 interface ProjectCardProps {
   name: string;
@@ -6,7 +7,8 @@ interface ProjectCardProps {
   github?: string;
   link?: string;
   status?: string;
-  tags?: string[];
+  badges?: string[];
+  image?: string;
 }
 
 export default function ProjectCard({
@@ -15,53 +17,40 @@ export default function ProjectCard({
   github,
   link,
   status,
-  tags,
+  badges,
 }: ProjectCardProps) {
-  const hasBadges = Boolean(status) || (tags?.length ?? 0) > 0;
+  const hasBadges = Boolean(status) || (badges?.length ?? 0) > 0;
 
   return (
-    <div className="bg-white rounded-sm px-6 py-8 shadow-sm hover:shadow-md transition">
-
-      <div className="flex flex-row mb-2 items-center">
-        <h3 className="text-xl sm:text-2xl font-medium text-pink">{name}</h3>
-        {hasBadges && (
-          <div className="ml-2">
-            {status && <Tag tag={status} variant="status" />}
-          </div>
-        )}
-      </div>
-
-      <p className="italic sm:text-lg">{description}</p>
-
-      {hasBadges && (
-        <div className="flex flex-wrap mt-6 gap-2">
-          {tags?.map((t) => (
-            <Tag key={t} tag={t} variant="info" />
-          ))}
+    <div className="card md:card-side bg-linear-to-br from-none to-base-100 rounded-none">
+      <div className="card-body text-base">
+        {hasBadges && ( status && <Badge badge={status} variant="status" />)}
+        {hasBadges && ( badges?.map((t) => (<Badge key={t} badge={t} variant="info" />)))}
+        <h2 className="card-title">{name}</h2>
+        <p className="font-light">{description}</p>
+        <div className="card-actions justify-end">
+            {github && (
+              <Link
+                href={github}
+                target="_blank"
+                className="btn btn-soft btn-info font-medium"
+              >
+                View on GitHub
+              </Link>
+            )}
+            {link && (
+              <Link
+                href={link}
+                target={link.startsWith('http') ? '_blank' : '_self'}
+                className="text-accent font-medium"
+              >
+                {link.startsWith('http') 
+                  ? <p>Learn more</p>
+                  : <p>View Designs</p>
+                }
+              </Link>
+            )}
         </div>
-      )}
-
-      <div className="flex flex-wrap mt-6">
-        {github && (
-          <a
-            href={github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm sm:text-base font-medium text-dark-pink hover:text-pink"
-          >
-            &#39;{name}&#39; on GitHub &#10141;
-          </a>
-        )}
-        {link && (
-          <a
-            href={link}
-            target={link.startsWith('http') ? '_blank' : '_self'}
-            rel="noopener noreferrer"
-            className="text-sm font-medium text-dark-pink hover:text-pink"
-          >
-            {link.startsWith('http') ? 'Visit Site \u279D' : 'View Designs \u279D'}
-          </a>
-        )}
       </div>
     </div>
   );

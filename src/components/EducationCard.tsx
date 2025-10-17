@@ -1,4 +1,4 @@
-import Tag from '@/components/Tag';
+import Badge from '@/components/Badge';
 
 interface EducationCardProps {
   status: string;
@@ -11,18 +11,20 @@ interface EducationCardProps {
 
 export default function EducationCard({ status, statusInfo, school, degree, field, information }: EducationCardProps) {
   return (
-    <div className="bg-white rounded-lg py-6 px-6 shadow-sm hover:shadow-mg transition">
-      <div className="flex flex-wrap gap-2 mb-2">
-        <Tag tag={status} variant="status" />
-        <Tag tag={statusInfo} variant="info" />
+    <div tabIndex={0} className="collapse collapse-arrow bg-linear-to-br from-none to-base-100 rounded-none">
+      <input type="checkbox" />
+      <div className="collapse-title space-y-4">
+        <div className="flex flex-wrap gap-2">
+          <Badge badge={status} variant="status" />
+          <Badge badge={statusInfo} variant="info" />
+        </div>
+        <h3 className="text-lg md:text-xl mb-1">{degree}</h3>
+      </div> 
+      <div className="collapse-content space-y-2">
+        <p className="text-accent">{field}</p>
+        <p className="">{school}</p>
+        <p className="text-sm font-light">{information}</p>
       </div>
-
-      <h3 className="text-xl sm:text-2xl mb-1 font-semibold">{degree}</h3>
-      <p className="sm:text-lg italic mb-1">{field}</p>
-
-      <p className="text-sm sm:text-base mb-4 font-medium text-dark-pink/70">{school}</p>
-
-      <p className="mb-2">{information}</p>
     </div>
   );
 }

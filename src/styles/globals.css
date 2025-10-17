@@ -1,19 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
-@theme {
-  --color-*: initial;
-  --color-white: #fff;
-  --color-light-gray: #f4f4f5;
-  --color-dark-gray: #3f3f46;
-  --color-pink: #9d174d;
-  --color-dark-pink: #500724;
-  --color-light-green: #dcfce7;
-  --color-dark-green: #065f46;
-  --color-light-yellow: #fef3c7;
-  --color-dark-yellow: #92400e;
+@custom-variant dark (&:where(.dark, .dark *));
 
-  --font-tinos: "Tinos", serif; 
-  --font-noto-sans-display: "Noto Sans Display", sans-serif;
+@theme {
+  --font-serif: "Noto Serif Display", serif;
+  --font-sans: "Noto Sans Display", sans-serif;
+  --radius-selector: 0.25rem;
+  --radius-field: 0rem;
+  --radius-box: 0rem;
+  --size-selector: 0.3125rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+@plugin "daisyui" {
+  root: ":root";
+}
+
+@plugin "daisyui/theme" {
+  color-scheme: "light";
+  name: "light";
+  prefersdark: "false";
+  --color-base-100: #ecf2f4;
+  --color-base-200: #e9f0f2;
+  --color-base-300: #dfe9ec;
+  --color-base-content: #2b3c40;
+  --color-primary: #2b485a;
+  --color-primary-content: var(--color-base-100);
+  --color-secondary: #86adca;
+  --color-secondary-content: var(--color-base-content);
+  --color-accent: #b04545;
+  --color-accent-content: var(--color-base-100);
+  --color-info: #28969e;
+  --color-info-content: var(--color-base-content);
+  --color-success: #4fba67;
+  --color-success-content: var(--color-base-100);
+  --color-warning: #ba964f;
+  --color-warning-content: var(--color-base-100);
+  --color-error: #8e2121;
+  --color-error-content: var(--color-base-content);
+}
+
+@plugin "daisyui/theme" {
+  colorscheme: "dark";
+  name: "dark";
+  --color-base-100: #0b1113;
+  --color-base-200: #0d1416;
+  --color-base-300: #131e21;
+  --color-base-content: #bfd0d4;
+  --color-primary: #a5c2d4;
+  --color-primary-content: var(--color-base-100);
+  --color-secondary: #355b79;
+  --color-secondary-content: var(--color-base-content);
+  --color-accent: #ba4f4f;
+  --color-accent-content: var(--color-base-100);
+  --color-info: #28969e;
+  --color-info-content: var(--color-base-content);
+  --color-success: #4fba67;
+  --color-success-content: var(--color-base-100);
+  --color-warning: #ba964f;
+  --color-warning-content: var(--color-base-100);
+  --color-error: #8e2121;
+  --color-error-content: var(--color-base-content);
+}
+
+@layer utilities {
+  html {
+    scrollbar-gutter: stable; 
+  }
 }

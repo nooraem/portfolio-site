@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="mt-12 py-2 text-center text-sm shadow-md bg-white text-dark-gray/70">
-      © {new Date().getFullYear()} Noora Issula. All Rights Reserved.
+    <footer className="flex-end w-full fixed bottom-0 p-2 z-0 text-center opacity-20">
+      <p>©{new Date().getFullYear()} Noora Issula. All rights reserved.</p>
     </footer>
   );
 }
