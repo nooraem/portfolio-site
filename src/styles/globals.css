@@ -24,7 +24,7 @@
 @plugin "daisyui/theme" {
   color-scheme: "light";
   name: "light";
-  prefersdark: "false";
+  prefersdark: "true";
   --color-base-100: #ecf2f4;
   --color-base-200: #e9f0f2;
   --color-base-300: #dfe9ec;
