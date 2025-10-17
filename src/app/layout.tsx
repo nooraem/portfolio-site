@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import type { Viewport } from 'next';
 
 export const metadata = {
-  title: 'Portfolio | Noora Issula',
+  title: 'Noora | Portfolio',
   description: 'Portfolio',
   icon: '/public/favicon.ico',
 };
@@ -17,7 +17,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-fit flex flex-col h-[100dvh] font-sans bg-base-200">
+      <body className="min-h-fit flex flex-col h-[100dvh] font-sans">
         <Header />
         <main className="flex flex-grow w-full">{children}</main>
         <Footer />
