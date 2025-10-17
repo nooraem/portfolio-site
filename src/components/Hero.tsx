@@ -3,9 +3,9 @@ import Image from "next/image";
 export default function Hero() {
     return (
         <div className="flex flex-row mx-auto w-10/12 lg:w-4xl h-[42dvh] gap-0 justify-center items-end-safe">
-            <div className="self-end z-10 -mr-20 px-6 py-2 mb-6 rounded-box">
+            <div className="self-end z-10 -mr-65 px-6 py-2 mb-2 rounded-box">
                 <h1 className="text-4xl md:text-6xl font-sans font-black text-info text-right">Noora</h1>
-                <h2 className="text-lg md:text-xl font-light text-right">Full-stack developer</h2>
+                <h2 className="text-lg md:text-xl font-light text-right text-white">Full-stack developer</h2>
             </div>
 
             <div>

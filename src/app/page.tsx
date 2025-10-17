@@ -6,7 +6,7 @@ import Education from '@/components/Education';
 
 export default function Home() {
   return (
-    <div className="w-full h-screen rounded-none">
+    <div className="w-full h-screen rounded-none bg-base-300">
       <Hero />
       <div className="">
         <About />
