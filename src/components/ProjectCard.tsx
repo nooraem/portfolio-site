@@ -1,55 +1,79 @@
-import Badge from './Badge';
-import Link from 'next/link';
+import Badge from "./Badge";
+import Link from "next/link";
 
 interface ProjectCardProps {
   name: string;
-  description: string;
-  github?: string;
-  link?: string;
   status?: string;
-  badges?: string[];
-  image?: string;
+  tags?: string[];
+  repo_url?: string;
+  link?: string;
+  description?: string;
+  images?: string[];
 }
 
 export default function ProjectCard({
   name,
-  description,
-  github,
-  link,
   status,
-  badges,
+  tags,
+  link,
+  repo_url,
+  description
 }: ProjectCardProps) {
-  const hasBadges = Boolean(status) || (badges?.length ?? 0) > 0;
+  const hasBadges = Boolean(status) || (tags?.length ?? 0) > 0;
 
   return (
-    <div className="card md:card-side bg-linear-to-br from-none to-base-100 rounded-none">
-      <div className="card-body text-base">
-        {hasBadges && ( status && <Badge badge={status} variant="status" />)}
-        {hasBadges && ( badges?.map((t) => (<Badge key={t} badge={t} variant="info" />)))}
-        <h2 className="card-title">{name}</h2>
-        <p className="font-light">{description}</p>
-        <div className="card-actions justify-end">
-            {github && (
-              <Link
-                href={github}
-                target="_blank"
-                className="btn btn-soft btn-info font-medium"
-              >
-                View on GitHub
-              </Link>
-            )}
-            {link && (
-              <Link
-                href={link}
-                target={link.startsWith('http') ? '_blank' : '_self'}
-                className="text-accent font-medium"
-              >
-                {link.startsWith('http') 
-                  ? <p>Learn more</p>
-                  : <p>View Designs</p>
-                }
-              </Link>
-            )}
+    <div
+      tabIndex={0}
+      className="
+        collapse collapse-arrow duration-400
+        bg-base-200
+        border border-base-300
+        shadow-sm
+        rounded-md
+      "
+    >
+      <input type="checkbox" />
+
+      <div className="collapse-title space-y-3">
+        {hasBadges && (
+          <div className="flex flex-wrap gap-1">
+            {status === "In Progress" && <Badge badge={status} variant="status" />}
+            {tags?.map(tag => (
+              <Badge key={tag} badge={tag} variant="tag" />
+            ))}
+          </div>
+        )}
+
+        <h3>
+          {name}
+        </h3>
+      </div>
+
+      <div className="collapse-content space-y-4">
+        <p className="text-xs font-extralight">
+          {description}
+        </p>
+
+        <div className="card-actions justify-end gap-2">
+          {repo_url && (
+            <Link
+              href={repo_url}
+              target="_blank"
+              className="btn btn-sm btn-soft btn-info"
+            >
+              View on GitHub
+            </Link>
+          )}
+
+          {link && (
+            <Link
+              href={link}
+              target={link.startsWith("http") ? "_blank" : "_self"}
+              className="btn btn-sm btn-soft btn-info"
+            >
+              Learn more
+            </Link>
+          )}
         </div>
       </div>
     </div>

@@ -1,35 +1,39 @@
-import Link from 'next/link';
-import { Moon, Sun } from 'lucide-react';
+import Link from "next/link";
+import { Moon, Sun } from "lucide-react";
 
 export default function Header() {
-
   return (
-    <>
-      <header className="flex flex-row fixed top-0 right-0 z-50 w-full h-20 p-6 space-x-20 items-center md:px-10">
-          <Link href="/" className="text-xl text-accent font-mono font-bold">
-            Noora Issula
-            <p className="text-base-content font-sans font-thin text-sm">Portfolio</p>
-          </Link>
+    <header className="
+      sticky top-0 z-50 
+      min-h-16 xl:min-h-20
+      content-center
+      bg-base-200/80 backdrop-blur
+      border-b border-base-100/80
+      transition-colors duration-400
+    ">
+      <div className="flex mx-auto w-8/9 items-center justify-between">
+        <Link href="/">
+          <p className="text-xl text-accent font-semibold">Noora Issula</p>
+          <p className="font-mono font-light text-sm -mt-2">issula.dev</p>
+        </Link>
 
-          <div className="flex flex-grow flex-row space-x-2">
-            <div className='h-5 w-5 rounded-full bg-base-100'></div>
-            <div className='h-5 w-5 rounded-full bg-base-200'></div>
-            <div className='h-5 w-5 rounded-full bg-base-300'></div>
-            <div className='h-5 w-5 rounded-full bg-primary'></div>
-            <div className='h-5 w-5 rounded-full bg-secondary'></div>
-            <div className='h-5 w-5 rounded-full bg-accent'></div>
-            <div className='h-5 w-5 rounded-full bg-info'></div>
-            <div className='h-5 w-5 rounded-full bg-success'></div>
-            <div className='h-5 w-5 rounded-full bg-warning'></div>
-            <div className='h-5 w-5 rounded-full bg-error'></div>
-          </div>
-      
-        <label className="swap swap-rotate btn btn-circle btn-soft btn-primary opacity-80">
-          <input type="checkbox" value="dark" className="theme-controller" defaultChecked />
-          <Moon className="swap-off"/>
-          <Sun className="swap-on"/>
+        <label className="
+          swap swap-rotate
+          btn btn-circle
+          text-primary hover:text-accent
+          bg-transparent border-0
+        ">
+          <input
+            type="checkbox"
+            className="theme-controller"
+            value="light"
+            aria-label="Toggle theme"
+          />
+
+          <Moon className="swap-on" />
+          <Sun className="swap-off" />
         </label>
-      </header>
-    </>
+      </div>
+    </header>
   );
 }

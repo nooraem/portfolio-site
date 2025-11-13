@@ -1,35 +1,39 @@
-import { Check, Info } from "lucide-react";
+import { Check } from "lucide-react";
 import { ReactElement } from "react";
 
-export type BadgeVariant = 'status' | 'info';
+export type BadgeVariant = "status" | "tag";
 
 export interface BadgeProps {
   badge: string;
   variant?: BadgeVariant;
 }
 
-export default function Badge({ badge, variant = 'status' }: BadgeProps) {
-  const badgeIcon: Record<string, ReactElement> = {
-    'Completed': <Check size="16" />,
-    'Finished': <Check size="16" />
-  }
-
-  const badgeColors: Record<string, string> = {
-    'Completed': 'badge-success',
-    'Finished': 'badge-success',
-    'In Progress': 'badge-warning',
-    'Ongoing': 'badge-warning'
+export default function Badge({ badge, variant = "status" }: BadgeProps) {
+  const badgeIcons: Record<string, ReactElement> = {
+    "Completed": <Check size={14} className="-ml-1"/>,
   };
 
-  const icon = 
-    variant === 'status'
-      ? badgeIcon[badge] ?? null
-      :  <Info size="16" />;
+  const badgeColors: Record<string, string> = {
+    "Completed": "badge-success",
+    "In Progress": "badge-warning",
+    "Ongoing": "badge-warning",
+  };
 
-  const color =
-    variant === 'status'
-      ? badgeColors[badge] ?? 'badge-info'
-      : 'badge-info';
+  if (variant === "tag") {
+    return (
+      <span
+        className="badge badge-xs badge-soft badge-info p-3 transition-colors duration-400">
+        {badge}
+      </span>
+    );
+  }
 
-  return <div className={`badge badge-soft ${color}`}>{icon}{badge}</div>;
+  const color = badgeColors[badge] ?? "badge-info";
+
+  return (
+    <span className={`badge badge-xs badge-soft ${color} gap-1 p-3 transition-colors duration-400`}>
+      {badgeIcons[badge]}
+      {badge}
+    </span>
+  );
 }

@@ -1,29 +1,42 @@
 import Badge from '@/components/Badge';
 
-interface EducationCardProps {
+type EducationCardProps = {
   status: string;
-  statusInfo: string;
+  statusinfo: string;
   school: string;
   degree: string;
   field: string;
-  information: string;
-}
+  description: string;
+};
 
-export default function EducationCard({ status, statusInfo, school, degree, field, information }: EducationCardProps) {
+export default function EducationCard({ status, statusinfo, school, degree, field, description }: EducationCardProps) {
   return (
-    <div tabIndex={0} className="collapse collapse-arrow bg-linear-to-br from-none to-base-100 rounded-none">
+    <div
+      tabIndex={0}
+      className="
+        collapse collapse-arrow duration-400
+        bg-base-200
+        border border-base-300
+        shadow-sm
+        rounded-md
+        text-base-content
+      "
+    >
       <input type="checkbox" />
-      <div className="collapse-title space-y-4">
-        <div className="flex flex-wrap gap-2">
+
+      <div className="collapse-title pt-4 space-y-2">
+        <div className="flex flex-wrap gap-1">
           <Badge badge={status} variant="status" />
-          <Badge badge={statusInfo} variant="info" />
+          <Badge badge={statusinfo} variant="tag" />
         </div>
-        <h3 className="text-lg md:text-xl mb-1">{degree}</h3>
-      </div> 
-      <div className="collapse-content space-y-2">
-        <p className="text-accent">{field}</p>
-        <p className="">{school}</p>
-        <p className="text-sm font-light">{information}</p>
+
+        <h3 className="leading-tight">{degree}</h3>
+      </div>
+
+      <div className="collapse-content">
+        <p className="text-xs font-extralight opacity-80">{school}</p>
+        <p className="text-sm text-accent">{field}</p>
+        <p className="text-xs font-extralight">{description}</p>
       </div>
     </div>
   );

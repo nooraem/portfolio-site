@@ -1,26 +1,30 @@
-import Image from "next/image";
+import ScrollButton from "@/components/ScrollButton";
 
 export default function Hero() {
-    return (
-        <div className="flex flex-row mx-auto w-10/12 lg:w-4xl h-[42dvh] gap-0 justify-center items-end-safe">
-            <div className="self-end z-10 -mr-65 px-6 py-2 mb-2 rounded-box">
-                <h1 className="text-4xl md:text-6xl font-sans font-black text-info text-right">Noora</h1>
-                <h2 className="text-lg md:text-xl font-light text-right text-white">Full-stack developer</h2>
-            </div>
 
-            <div>
-                <Image 
-                src="/noora.png" 
-                width={500} 
-                height={500} 
-                alt="Profile.jpg"
-                className="max-h-[40dvh] w-auto z-0 self-end-safe"
-                />
-            </div>
+  return (
+    <div className="hero min-h-[calc(100dvh-60px)] xl:min-h-[calc(100dvh-80px)] hero-bg text-base transition-colors duration-400">
+      <div className="hero-content flex-col max-w-8/9 text-center px-4">
+        <h1 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-semibold leading-4">
+          Hi, I&apos;m Noora
+        </h1>
 
-            <p className="md:text-lg max-w-85 font-light p-4 self-center">
-                I&apos;m a final-year IT student with a strong interest in <span className="text-accent font-mono font-semibold">full-stack development</span> and <span className="text-accent font-mono font-semibold">visual design</span>
-            </p>
+        <p className="font-light opacity-80">
+          Developer · Designer
+        </p>
+
+        <p className="py-4 text-base md:text-lg opacity-90 max-w-xl">
+          IT student with a strong interest in {" "}
+          <br /><span className="hero-highlight font-courier text-lg md:text-xl">full-stack development</span> {" "}
+          & {" "}
+          <span className="hero-highlight font-courier text-lg md:text-xl">visual design</span>
+        </p>
+
+        <div className="space-x-6 mt-10">
+          <ScrollButton targetId="about" className="btn btn-soft btn-info">About Me</ScrollButton>
+          <ScrollButton targetId="work"  className="btn btn-soft btn-info">My Work</ScrollButton>
         </div>
-    );
+      </div>
+    </div>
+  );
 }

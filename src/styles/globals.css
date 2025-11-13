@@ -1,75 +1,158 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
-  --font-serif: "Noto Serif Display", serif;
-  --font-sans: "Noto Sans Display", sans-serif;
-  --radius-selector: 0.25rem;
-  --radius-field: 0rem;
-  --radius-box: 0rem;
-  --size-selector: 0.3125rem;
-  --size-field: 0.25rem;
-  --border: 1px;
-  --depth: 1;
-  --noise: 0;
+  --font-courier: "Courier Prime", monospace;
+  --font-sans: "Encode Sans Expanded", sans-serif;
+  --font-mono: "Google Sans Code", monospace;
 }
 
 @plugin "daisyui" {
+  themes: light, dark;
   root: ":root";
 }
 
 @plugin "daisyui/theme" {
-  color-scheme: "light";
   name: "light";
-  prefersdark: "false";
-  --color-base-100: #ecf2f4;
-  --color-base-200: #e9f0f2;
-  --color-base-300: #dfe9ec;
-  --color-base-content: #2b3c40;
-  --color-primary: #2b485a;
+  default: "false";
+  color-scheme: "light";
+  --color-base-100: oklch(89% 0.040 210);
+  --color-base-200: oklch(97% 0.040 210);
+  --color-base-300: oklch(85% 0.040 210);
+  --color-base-content: oklch(22% 0.030 250);
+
+  --color-primary: oklch(32% 0.06 230);
   --color-primary-content: var(--color-base-100);
-  --color-secondary: #86adca;
+
+  --color-secondary: oklch(72% 0.050 230);
   --color-secondary-content: var(--color-base-content);
-  --color-accent: #b04545;
+
+  --color-accent: oklch(62% 0.115 30);
   --color-accent-content: var(--color-base-100);
-  --color-info: #28969e;
+
+  --color-info: oklch(62% 0.090 210);
   --color-info-content: var(--color-base-content);
-  --color-success: #4fba67;
+
+  --color-success: oklch(62% 0.110 150);
   --color-success-content: var(--color-base-100);
-  --color-warning: #ba964f;
+
+  --color-warning: oklch(62% 0.110 80);
   --color-warning-content: var(--color-base-100);
-  --color-error: #8e2121;
+
+  --color-error: oklch(45% 0.120 25);
   --color-error-content: var(--color-base-content);
+
+  --radius-selector: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.25rem;
+  
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+  
+  --hero-bg: radial-gradient(
+    ellipse at top right,
+    oklch(78% 0.06 230) 0%,
+    oklch(75% 0.09 190) 40%,
+    oklch(72% 0.11 40) 90%
+  );
+
+  --hero-highlight: var(--color-primary);
+
+  --designpage-bg: radial-gradient(
+    ellipse at top right,
+    oklch(78% 0.06 230) 0%,
+    oklch(75% 0.09 190) 40%,
+    oklch(72% 0.11 40) 90%
+  );
 }
 
 @plugin "daisyui/theme" {
-  colorscheme: "dark";
   name: "dark";
-  --color-base-100: #0b1113;
-  --color-base-200: #0d1416;
-  --color-base-300: #131e21;
-  --color-base-content: #bfd0d4;
-  --color-primary: #a5c2d4;
+  default: "true";
+  color-scheme: "dark";
+  prefersdark: "true";
+  --color-base-100: oklch(15% 0.020 250);
+  --color-base-200: oklch(20% 0.022 250);
+  --color-base-300: oklch(24% 0.024 250);
+  --color-base-content: oklch(83% 0.030 230);
+
+  --color-primary: oklch(78% 0.050 230);
   --color-primary-content: var(--color-base-100);
-  --color-secondary: #355b79;
+
+  --color-secondary: oklch(32% 0.06 230);
   --color-secondary-content: var(--color-base-content);
-  --color-accent: #ba4f4f;
+
+  --color-accent: oklch(63% 0.115 30);
   --color-accent-content: var(--color-base-100);
-  --color-info: #28969e;
+
+  --color-info: oklch(65% 0.090 210);
   --color-info-content: var(--color-base-content);
-  --color-success: #4fba67;
+
+  --color-success: oklch(68% 0.110 150);
   --color-success-content: var(--color-base-100);
-  --color-warning: #ba964f;
+
+  --color-warning: oklch(68% 0.110 80);
   --color-warning-content: var(--color-base-100);
-  --color-error: #8e2121;
+
+  --color-error: oklch(45% 0.120 25);
   --color-error-content: var(--color-base-content);
+
+  --radius-selector: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.25rem;
+  
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+  
+  --hero-bg: radial-gradient(
+    ellipse at bottom left,
+    oklch(30% 0.05 250) 0%,
+    oklch(32% 0.06 230) 25%,
+    oklch(28% 0.07 200) 55%,
+    oklch(25% 0.08 30) 100%
+  );
+
+  --hero-highlight: var(--color-accent);
+
+  --designpage-bg: radial-gradient(
+    ellipse at bottom left,
+    oklch(30% 0.05 250) 0%,
+    oklch(32% 0.06 230) 25%,
+    oklch(28% 0.07 200) 55%,
+    oklch(25% 0.08 30) 100%
+  );
 }
 
 @layer utilities {
   html {
     scrollbar-gutter: stable; 
+  }
+  h1 {
+    font-family: var(--font-mono);
+    font-size: var(--text-3xl);
+  }
+  h2 {
+    font-family: var(--font-mono);
+    font-size: var(--text-xl);
+  }
+  h3 {
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-medium);
+  }
+}
+
+@layer components {
+  .hero {
+    &.hero-bg {
+      background: var(--hero-bg);
+    }
+    .hero-highlight {
+      color: var(--hero-highlight);
+    }
+  }
+  .designpage {
+    background: var(--designpage-bg);
   }
 }

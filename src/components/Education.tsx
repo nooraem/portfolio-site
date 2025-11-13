@@ -1,16 +1,42 @@
-import { studies} from "@/data/education";
+"use client";
+import { useEffect, useState } from "react";
 import EducationCard from "@/components/EducationCard";
 
-export default function Education() {
-    return (
-        <div className="mx-auto w-10/12 lg:w-4xl py-10 content-center space-y-2">
-            <div className="divider divider-start font-mono">
-                <h2>Studies</h2>
-            </div>
+type Education = {
+  id: string;
+  status: string;
+  statusinfo: string;
+  school: string;
+  degree: string;
+  field: string;
+  description: string;
+};
 
-            {studies.map((education) => (
-            <EducationCard key={`${education.school}-${education.degree}`} {...education}/>
-            ))}
+export default function Education() {
+    const [education, setEducation] = useState<Education[]>([]);
+
+    useEffect(() => {
+        (async () => {
+            const res = await fetch("/api/education", { cache: "no-store" });
+            setEducation(await res.json());
+        })();
+    }, []);
+
+    return (
+        <div className="transition-colors duration-400">
+            <div className="content-center space-y-4 mx-auto w-8/9 sm:w-7/9 lg:w-12/16 xl:w-10/16 2xl:w-8/16 3xl:w-6/16 transition-colors duration-400">
+                <h2 className="text-accent">
+                    Education
+                </h2>
+
+                <div className="columns-1 md:columns-2 space-y-6">
+                    {education.map((education) => (
+                        <div key={education.id} className="mb-4 break-inside-avoid">
+                            <EducationCard {...education}/>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 }

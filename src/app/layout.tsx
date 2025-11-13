@@ -4,8 +4,8 @@ import Footer from '@/components/Footer';
 import type { Viewport } from 'next';
 
 export const metadata = {
-  title: 'Noora | Portfolio',
-  description: 'Portfolio',
+  title: 'Noora Issula | issula.dev',
+  description: 'Portfolio of Noora Issula.',
   icon: '/public/favicon.ico',
 };
 
@@ -17,9 +17,13 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-fit flex flex-col h-[100dvh] font-sans">
+      <body className="min-h-screen flex flex-col bg-base-100 font-sans transition-colors duration-400" >
         <Header />
-        <main className="flex flex-grow w-full">{children}</main>
+
+        <main className="flex flex-1">
+          {children}
+        </main>
+
         <Footer />
       </body>
     </html>

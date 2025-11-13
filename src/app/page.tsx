@@ -1,19 +1,19 @@
 import About from '../components/About';
-import Projects from '@/components/Projects';
-import Contact from '@/components/Contact';
-import Hero from '@/components/Hero';
 import Education from '@/components/Education';
+import Hero from '@/components/Hero';
+import Projects from '@/components/Projects';
 
 export default function Home() {
   return (
-    <div className="w-full h-screen rounded-none bg-base-300">
+    <div className="w-full mb-20 xl:mb-30 space-y-16 sm:space-y-20 xl:space-y-24">
       <Hero />
-      <div className="">
+      <div id="about" className="scroll-mt-32 sm:scroll-mt-36 xl:scroll-mt-44">
         <About />
-        <Education />
       </div>
-      <Projects />
-      <Contact />
+        <Education />
+      <div id="work" className="scroll-mt-20 sm:scroll-mt-36 xl:scroll-mt-44">
+        <Projects />
+      </div>
     </div>
   );
 }

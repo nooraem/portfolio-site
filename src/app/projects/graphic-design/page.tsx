@@ -5,43 +5,49 @@ import DesignModal from "@/components/DesignModal";
 import GraphicDesigns from "@/components/GraphicDesigns";
 
 type Design = {
+  id: string;
   title: string;
   description?: string;
-  image: string;
   tag: string;
+  images: string[];
 }
 
 export default function GraphicDesignPage() {
   const [selected, setSelected] = useState<Design | null>(null);
 
   return (
-    <div className="mx-auto w-full lg:w-4xl lg:my-40 content-center">
-      <div className="bg-base-300 p-6 space-y-4">
-        <h1 className="font-mono font-bold text-2xl text-accent">
-          <span className="text-info font-thin">/projects</span>
-          /graphic-design
-        </h1>
+    <div className="designpage w-full min-h-[calc(100dvh-60px)] pb-20">
+      <div className="
+        w-8/9 sm:w-7/9 lg:w-12/16 xl:w-10/16 2xl:w-8/16 3xl:w-6/16
+        mx-auto
+        transition-colors duration-400
+      ">
+        <div className="space-y-4 my-20">
+          <div>
+            <p className="-mb-2 text-base-100/80 text-xl leading-tight">Projects</p>
+            <h1 className="text-accent">Graphic Design</h1>
+          </div>
 
-        <p>
-          Logos, advertisements and other designs created for private individuals or companies.
-        </p>
+          <p>
+            Logos, advertisements and other designs created for private individuals or companies.
+          </p>
 
-        <p className="italic text-sm text-primary/60">
-          (This page is still a work in progress and more designs will be added.)
-        </p>   
-      </div>
+          <p className="italic text-xs font-light opacity-80">
+            NOTE: This page is still a work in progress and more designs will be added.
+          </p>   
+        </div>
 
-      <div className="bg-base-200 p-6 mt-20">
         <GraphicDesigns onSelect={(d) => setSelected(d)} />
+
+        <DesignModal
+          open={!!selected}
+          onClose={() => setSelected(null)}
+          title={selected?.title ?? ""}
+          description={selected?.description ?? ""}
+          images={selected?.images ?? [""]}
+        />
       </div>
 
-      <DesignModal
-        open={!!selected}
-        onClose={() => setSelected(null)}
-        title={selected?.title ?? ""}
-        description={selected?.description ?? ""}
-        image={selected?.image ?? ""}
-      />
     </div>
   );
 }

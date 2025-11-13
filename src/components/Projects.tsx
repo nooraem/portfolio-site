@@ -1,32 +1,77 @@
-import { personalProjects, work } from '@/data/projects';
+"use client";
+
+import { useEffect, useState } from "react";
 import ProjectCard from '@/components/ProjectCard';
+import Link from "next/link";
+import Badge from "./Badge";
+
+type Project = {
+  id: string;
+  name: string;
+  status?: string;
+  tags?: string[];
+  repo_url?: string;
+  link?: string;
+  description?: string;
+  images?: string[];
+};
 
 export default function Projects() {
+  const [projects, setProjects] = useState<Project[]>([]);
+
   const sortByStatus = (a: { status?: string }, b: { status?: string }) => {
-    if (a.status === 'In Progress' && b.status !== 'In Progress') return -1;
-    if (a.status !== 'In Progress' && b.status === 'In Progress') return 1;
+    if (a.status !== 'In Progress' && b.status === 'In Progress') return -1;
+    if (a.status === 'In Progress' && b.status !== 'In Progress') return 1;
     return 0;
   };
 
+  useEffect(() => {
+    (async () => {
+      const res = await fetch("/api/projects", { cache: "no-store" });
+      setProjects(await res.json());
+    })();
+  }, []);
+
   return (
-    <div className="mx-auto w-10/12 lg:w-4xl py-10 content-center space-y-10">
-      <div className="divider divider-start font-mono">
-        <h2>Projects</h2>
-      </div>
+    <div className="content-center space-y-4 mx-auto w-8/9 sm:w-7/9 lg:w-12/16 xl:w-10/16 2xl:w-8/16 3xl:w-6/16 transition-colors duration-400">
+      <h2 className="text-accent">
+        Projects
+      </h2>
 
-      <div className="flex flex-col space-y-2">
-        {personalProjects.sort(sortByStatus).map((project) => (
-          <ProjectCard key={project.name} {...project} />
-        ))}
-      </div>
+      <div className="columns-1 md:columns-2 space-y-6">
+        <div className="
+          transition-colors duration-400
+          bg-base-200
+          border border-base-300
+          shadow-sm
+          rounded-md
+          text-base-content
+          space-y-3 p-4
+        ">
+          <Badge badge="Photoshop" variant="tag" />  
+          <Badge badge="Illustrator" variant="tag" /> 
+          
+          <h3>Graphic Design</h3>
 
-      <div className="divider divider-start font-mono">
-        <h2 className="font-mono">Other Work</h2>
-      </div>
+          <p className="text-xs font-extralight">
+            Various designs that I&apos;ve created as a hobby—logos, ads, and more.
+          </p>
 
-      <div className="flex flex-col space-y-2">
-        {work.sort(sortByStatus).map((project) => (
-          <ProjectCard key={project.name} {...project} />
+          <div className="flex justify-end gap-2">
+            <Link
+              href="/projects/graphic-design"
+              target="_self"
+              className="btn btn-sm btn-soft btn-info"
+            >
+              View designs
+            </Link>
+          </div>
+        </div>
+
+        {projects.sort(sortByStatus).map((project) => (
+          <div key={project.id}>
+            <ProjectCard {...project} />
+          </div>
         ))}
       </div>
     </div>
