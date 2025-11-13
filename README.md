@@ -1,12 +1,11 @@
-# nooraissula.com – Portfolio Website
+# issula.dev – Portfolio Website
 
-This is the personal portfolio website of an IT student with a strong interest in both software development and visual design.
+This is the personal portfolio website of an IT student with an interest in both software development and visual design.
 
 ## ✨ Features
 
-- Showcases selected software and graphic design projects
+- Showcases selected projects
 - Responsive, mobile-friendly layout
-- Includes contact options and social links
 - Built with modern web technologies
 
 ## 🛠️ Tech Stack
