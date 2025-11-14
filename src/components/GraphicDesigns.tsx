@@ -84,8 +84,7 @@ export default function GraphicDesigns({ onSelect }: { onSelect: (d: Design) => 
     <div className="mx-auto content-center space-y-4">
       <Section tag="logo" title="logos" />
       <Section tag="ad" title="advertisements" />
-      <Section tag="website" title="websites" />
-      <Section tag="poster" title="posters" />
+      <Section tag="other" title="other" />
     </div>
   );
 }
