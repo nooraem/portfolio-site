@@ -13,18 +13,10 @@ export default function EducationCard({ status, statusinfo, school, degree, fiel
   return (
     <div
       tabIndex={0}
-      className="
-        collapse collapse-arrow duration-400
-        bg-base-200
-        border border-base-300
-        shadow-sm
-        rounded-md
-        text-base-content
-      "
-    >
+      className="collapse collapse-arrow custom-card duration-400">
       <input type="checkbox" />
 
-      <div className="collapse-title pt-4 space-y-2">
+      <div className="collapse-title space-y-2">
         <div className="flex flex-wrap gap-1">
           <Badge badge={status} variant="status" />
           <Badge badge={statusinfo} variant="tag" />

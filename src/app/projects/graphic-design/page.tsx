@@ -24,7 +24,7 @@ export default function GraphicDesignPage() {
       ">
         <div className="space-y-4 my-20">
           <div>
-            <p className="-mb-2 text-base-100/80 text-xl leading-tight">Projects</p>
+            <p className="-mb-2 text-base-content/60 text-xl leading-tight">Projects</p>
             <h1 className="text-accent">Graphic Design</h1>
           </div>
 

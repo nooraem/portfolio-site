@@ -7,40 +7,28 @@
   --font-mono: "Google Sans Code", monospace;
 }
 
-@plugin "daisyui" {
+@plugin "daisyui"  {
   themes: light, dark;
-  root: ":root";
-}
+ };
 
 @plugin "daisyui/theme" {
   name: "light";
-  default: "false";
-  color-scheme: "light";
+  default: false;
+  color-scheme: light;
   --color-base-100: oklch(89% 0.040 210);
   --color-base-200: oklch(97% 0.040 210);
   --color-base-300: oklch(85% 0.040 210);
   --color-base-content: oklch(22% 0.030 250);
 
-  --color-primary: oklch(32% 0.06 230);
-  --color-primary-content: var(--color-base-100);
-
-  --color-secondary: oklch(72% 0.050 230);
-  --color-secondary-content: var(--color-base-content);
+  --color-primary: oklch(0.6306 0.1077 193.89);
+  --color-secondary: oklch(0.7493 0.0598 183.2 / 80%);
+  --color-secondary-content: oklch(0.4644 0.0335 183.2 / 80%);
 
   --color-accent: oklch(62% 0.115 30);
-  --color-accent-content: var(--color-base-100);
-
   --color-info: oklch(62% 0.090 210);
-  --color-info-content: var(--color-base-content);
-
   --color-success: oklch(62% 0.110 150);
-  --color-success-content: var(--color-base-100);
-
   --color-warning: oklch(62% 0.110 80);
-  --color-warning-content: var(--color-base-100);
-
   --color-error: oklch(45% 0.120 25);
-  --color-error-content: var(--color-base-content);
 
   --radius-selector: 0.25rem;
   --radius-field: 0.25rem;
@@ -57,7 +45,7 @@
     oklch(72% 0.11 40) 90%
   );
 
-  --hero-highlight: var(--color-primary);
+  --hero-highlight: var(--color-accent);
 
   --designpage-bg: radial-gradient(
     ellipse at top right,
@@ -69,34 +57,23 @@
 
 @plugin "daisyui/theme" {
   name: "dark";
-  default: "true";
-  color-scheme: "dark";
-  prefersdark: "true";
+  default: true;
+  color-scheme: dark;
+  prefersDark: true;
   --color-base-100: oklch(15% 0.020 250);
   --color-base-200: oklch(20% 0.022 250);
   --color-base-300: oklch(24% 0.024 250);
   --color-base-content: oklch(83% 0.030 230);
 
-  --color-primary: oklch(78% 0.050 230);
-  --color-primary-content: var(--color-base-100);
-
-  --color-secondary: oklch(32% 0.06 230);
-  --color-secondary-content: var(--color-base-content);
+  --color-primary: oklch(0.6306 0.1077 193.89);
+  --color-secondary: oklch(0.3487 0.0324 183.2 / 60%);
+  --color-secondary-content: oklch(0.7493 0.0598 183.2 / 80%);
 
   --color-accent: oklch(63% 0.115 30);
-  --color-accent-content: var(--color-base-100);
-
   --color-info: oklch(65% 0.090 210);
-  --color-info-content: var(--color-base-content);
-
   --color-success: oklch(68% 0.110 150);
-  --color-success-content: var(--color-base-100);
-
   --color-warning: oklch(68% 0.110 80);
-  --color-warning-content: var(--color-base-100);
-
   --color-error: oklch(45% 0.120 25);
-  --color-error-content: var(--color-base-content);
 
   --radius-selector: 0.25rem;
   --radius-field: 0.25rem;
@@ -114,7 +91,7 @@
     oklch(25% 0.08 30) 100%
   );
 
-  --hero-highlight: var(--color-accent);
+  --hero-highlight: var(--color-info);
 
   --designpage-bg: radial-gradient(
     ellipse at bottom left,
@@ -144,15 +121,34 @@
 }
 
 @layer components {
+  .designpage {
+    background: var(--designpage-bg);
+  }
+  .custom-card {
+    background-color: var(--color-base-200);
+    border: 1;
+    border-color: var(--color-base-300);
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-md);
+    padding-block: calc(var(--spacing) * 3);
+    padding-inline: calc(var(--spacing) * 5);
+    &.collapse {
+      padding: calc(var(--spacing) * 0.5);
+    } 
+  }
   .hero {
+    text-shadow: var(--text-shadow-sm);
     &.hero-bg {
       background: var(--hero-bg);
     }
     .hero-highlight {
+      font-family: var(--font-mono);
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
       color: var(--hero-highlight);
     }
-  }
-  .designpage {
-    background: var(--designpage-bg);
+    h1 {
+      color: var(--hero-highlight);
+    }
   }
 }

@@ -23,13 +23,13 @@ export default function Education() {
     }, []);
 
     return (
-        <div className="transition-colors duration-400">
-            <div className="content-center space-y-4 mx-auto w-8/9 sm:w-7/9 lg:w-12/16 xl:w-10/16 2xl:w-8/16 3xl:w-6/16 transition-colors duration-400">
+        <div className="break-inside-avoid transition-colors duration-400">
+            <div className="content-center space-y-4 transition-colors duration-400">
                 <h2 className="text-accent">
                     Education
                 </h2>
 
-                <div className="columns-1 md:columns-2 space-y-6">
+                <div className="columns-1">
                     {education.map((education) => (
                         <div key={education.id} className="mb-4 break-inside-avoid">
                             <EducationCard {...education}/>

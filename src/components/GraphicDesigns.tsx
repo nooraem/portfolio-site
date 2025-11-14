@@ -38,7 +38,7 @@ export default function GraphicDesigns({ onSelect }: { onSelect: (d: Design) => 
           rounded-sm
         ">
           {items.map((design) => (
-            <div key={design.title} className="bg-base-100/20 rounded-sm break-inside-avoid hover:scale-95 duration-400 ease-in-out">
+            <div key={design.title} className="bg-base-100/20 rounded-sm shadow-md break-inside-avoid hover:scale-95 duration-400 ease-in-out">
               <label
                 htmlFor="design_modal"
                 onClick={() => onSelect(design)}
@@ -50,7 +50,7 @@ export default function GraphicDesigns({ onSelect }: { onSelect: (d: Design) => 
                     alt={design.title}
                     width={500}
                     height={500}
-                    className="rounded-sm hover:scale-95 duration-400 ease-in"
+                    className="rounded-sm"
                   />
 
                   {design.images.length > 1 && (

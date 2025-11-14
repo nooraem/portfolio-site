@@ -10,7 +10,7 @@ export interface BadgeProps {
 
 export default function Badge({ badge, variant = "status" }: BadgeProps) {
   const badgeIcons: Record<string, ReactElement> = {
-    "Completed": <Check size={14} className="-ml-1"/>,
+    "Completed": <Check size={14} className="-ml-0"/>,
   };
 
   const badgeColors: Record<string, string> = {
@@ -22,7 +22,7 @@ export default function Badge({ badge, variant = "status" }: BadgeProps) {
   if (variant === "tag") {
     return (
       <span
-        className="badge badge-xs badge-soft badge-info p-3 transition-colors duration-400">
+        className="badge badge-xs rounded-xl badge-secondary p-2 transition-colors duration-400">
         {badge}
       </span>
     );
@@ -31,7 +31,7 @@ export default function Badge({ badge, variant = "status" }: BadgeProps) {
   const color = badgeColors[badge] ?? "badge-info";
 
   return (
-    <span className={`badge badge-xs badge-soft ${color} gap-1 p-3 transition-colors duration-400`}>
+    <span className={`badge badge-xs rounded-xl badge-soft ${color} gap-1 p-2 transition-colors duration-400`}>
       {badgeIcons[badge]}
       {badge}
     </span>

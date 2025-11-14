@@ -38,18 +38,12 @@ export default function Projects() {
         Projects
       </h2>
 
-      <div className="columns-1 md:columns-2 space-y-6">
-        <div className="
-          transition-colors duration-400
-          bg-base-200
-          border border-base-300
-          shadow-sm
-          rounded-md
-          text-base-content
-          space-y-3 p-4
-        ">
-          <Badge badge="Photoshop" variant="tag" />  
-          <Badge badge="Illustrator" variant="tag" /> 
+      <div className="columns-1 md:columns-2 space-y-4">
+        <div className="custom-card transition-colors duration-400">
+          <div className="space-x-1 mb-3">
+            <Badge badge="Photoshop" variant="tag" />  
+            <Badge badge="Illustrator" variant="tag" /> 
+          </div>
           
           <h3>Graphic Design</h3>
 
@@ -61,7 +55,7 @@ export default function Projects() {
             <Link
               href="/projects/graphic-design"
               target="_self"
-              className="btn btn-sm btn-soft btn-info"
+              className="btn btn-xs text-accent"
             >
               View designs
             </Link>

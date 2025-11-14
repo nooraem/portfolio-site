@@ -7,7 +7,7 @@ export default function About() {
             rounded-sm mx-auto 
             transition-colors duration-400">
             <h1 className="text-accent">
-                About me
+                About Me
             </h1>
             <p className="text-sm leading-6">
                 Close to be graduated and eager to improve my skills on any occasion! I&apos;m {" "}
