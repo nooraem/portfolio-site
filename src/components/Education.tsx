@@ -24,7 +24,7 @@ export default function Education() {
 
     return (
         <div className="break-inside-avoid transition-colors duration-400">
-            <div className="content-center space-y-4 transition-colors duration-400">
+            <div className="content-center space-y-2 transition-colors duration-400">
                 <h2 className="text-accent">
                     Education
                 </h2>
