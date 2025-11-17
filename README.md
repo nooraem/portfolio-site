@@ -10,8 +10,8 @@ This is the personal portfolio website of an IT student with an interest in both
 
 ## 🛠️ Tech Stack
 
-- [Next.js](https://nextjs.org/) (App Router)
-- [Tailwind CSS](https://tailwindcss.com/)
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/) + [daisyUI](https://daisyui.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - Deployed on [Vercel](https://vercel.com/)
 
