@@ -1,3 +1,5 @@
+import { MapPinIcon } from "lucide-react";
+
 export default function About() {
     return (
         <div className="
@@ -9,6 +11,13 @@ export default function About() {
             <h1 className="text-accent">
                 About Me
             </h1>
+            <div className="mb-14">
+                <p className="text-lg">Noora Issula</p>
+                <div className="flex justify-center text-sm text-secondary-content items-center gap-1">
+                    <MapPinIcon size={16}/>
+                    <p>Lappeenranta, FI</p>
+                </div>
+            </div>
             <p className="text-sm leading-6">
                 Close to be graduated and eager to improve my skills on any occasion! I&apos;m {" "}
                 <span className="text-info font-medium">currently looking for a practical training opportunity</span> {" "}

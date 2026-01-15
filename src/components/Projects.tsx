@@ -51,7 +51,7 @@ export default function Projects() {
           
           <h3>Graphic Design</h3>
 
-          <p className="text-xs font-extralight">
+          <p className="text-sm font-extralight">
             Various designs that I&apos;ve created as a hobby—logos, ads, and more.
           </p>
 

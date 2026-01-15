@@ -40,7 +40,7 @@ export default function ProjectCard({
         {name}
       </h3>
 
-      <p className="text-xs font-extralight py-4">
+      <p className="text-sm font-extralight py-4">
         {description}
       </p>
 
