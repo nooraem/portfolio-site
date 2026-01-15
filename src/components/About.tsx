@@ -11,12 +11,13 @@ export default function About() {
             </h1>
             <p className="text-sm leading-6">
                 Close to be graduated and eager to improve my skills on any occasion! I&apos;m {" "}
-                <span className="text-info font-medium">currently looking for an internship</span> {" "}
-                opportunity to complete my degree.
+                <span className="text-info font-medium">currently looking for a practical training opportunity</span> {" "}
+                to complete my degree. Even better if it could be the beginning of an employment.
             </p>
             <p className="text-sm leading-6">
-                I often spend my spare time to improve my skills with personal projects.
-                With a passion for graphic design and all things visual, I&apos;ve also designed logos, ads, websites, and more—for both businesses and private individuals.
+                I often spend my spare time improving my skills with personal projects, either driven by my own interests or at the request of friends/family.
+                With a passion for graphic design and all things visual, I&apos;ve also designed logos, ads, and more, for both businesses and private individuals. 
+                This site is still a work in progress but offers a glimpse of my skills.
             </p>
         </div>
     );

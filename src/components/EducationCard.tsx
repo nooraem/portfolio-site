@@ -26,9 +26,9 @@ export default function EducationCard({ status, statusinfo, school, degree, fiel
       </div>
 
       <div className="collapse-content">
-        <p className="text-xs font-extralight opacity-80">{school}</p>
+        <p className="text-xs font-light opacity-80">{school}</p>
         <p className="text-sm text-accent">{field}</p>
-        <p className="text-xs font-extralight">{description}</p>
+        <p className="text-xs font-light mt-2">{description}</p>
       </div>
     </div>
   );
