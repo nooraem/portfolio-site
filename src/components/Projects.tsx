@@ -38,6 +38,8 @@ export default function Projects() {
         Projects
       </h2>
 
+      <p>Here you can view a selection of my previous projects. (There are still some projects missing from this section)</p>
+
       <div className="columns-1 md:columns-2 space-y-4">
         <div className="custom-card transition-colors duration-400">
           <div className="space-x-1 mb-3">
